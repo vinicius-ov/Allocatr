@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Name}" BackgroundColor="#202020" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" x:Class="Allocatr.ProjectDetailsPage">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+            <ffimageloading:CachedImage Source="{Binding PhotoUrl}" LoadingPlaceholder="placeholder.png" HeightRequest="220" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="4.5*" />
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="4.5*" />
+                </Grid.RowDefinitions>
+                <BoxView Color="Black" Grid.Row="0"
+             CornerRadius="10"
+             WidthRequest="600"
+             HeightRequest="2"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" />
+                <Label TextColor="White" Grid.Row="1" Text="Employees in this project" HorizontalOptions="CenterAndExpand" />
+                <ListView Grid.Row="2" x:Name="WorkersListView" SelectionMode="Single" ItemTapped="OnRemoveEmployeeFromProject" RowHeight="60" BackgroundColor="#202020">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="20">
+                                    <Label TextColor="White" Text="{Binding Name}" LineBreakMode="WordWrap" MaxLines="2" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                                    <Label TextColor="White" Text="{Binding Skill}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <BoxView Color="White" Grid.Row="3"
+             CornerRadius="10"
+             WidthRequest="600"
+             HeightRequest="2"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" />
+                <Label TextColor="White" Grid.Row="4" Text="Available Employees" HorizontalOptions="CenterAndExpand" />
+                <ListView Grid.Row="5" x:Name="EmployeesListView" SelectionMode="Single" ItemTapped="OnAddEmployeeToProject" RowHeight="60" BackgroundColor="#404040">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal" Margin="20">
+                                    <Label TextColor="White" Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label TextColor="White" Text="{Binding Skill}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackLayout>
+</ContentPage.Content>
+</ContentPage>

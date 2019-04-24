@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage Title="Projects" BackgroundColor="#202020" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:local="clr-namespace:Allocatr" x:Class="Allocatr.MainPage">
+    <StackLayout>
+        <ListView x:Name="ProjectsListView" SelectionMode="None" ItemTapped="OnProjectSelected" RowHeight="300" Margin="5" BackgroundColor="#202020">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" BackgroundColor="#202020" Padding="5,20">
+                            <ffimageloading:CachedImage Source="{Binding PhotoUrl}" LoadingPlaceholder="placeholder.png" WidthRequest="500" HeightRequest="200" HorizontalOptions="CenterAndExpand" />
+                            <Label Text="{Binding Name}" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large" FontFamily="Verdana"/>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                <Label Text="Members:" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />
+                                <Label Text="{Binding Workers.Count}" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+</StackLayout>
+</ContentPage>
