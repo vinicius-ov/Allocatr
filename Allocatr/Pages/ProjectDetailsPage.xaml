@@ -6,11 +6,11 @@
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.2*" />
-                    <RowDefinition Height="0.5*" />
-                    <RowDefinition Height="4.5*" />
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="4.0*" />
                     <RowDefinition Height="0.2*" />
-                    <RowDefinition Height="0.5*" />
-                    <RowDefinition Height="4.5*" />
+                    <RowDefinition Height="0.8*" />
+                    <RowDefinition Height="4.0*" />
                 </Grid.RowDefinitions>
                 <BoxView Color="Black" Grid.Row="0"
              CornerRadius="10"
@@ -18,13 +18,16 @@
              HeightRequest="2"
              VerticalOptions="Center"
              HorizontalOptions="Center" />
-                <Label TextColor="White" Grid.Row="1" Text="Employees in this project" HorizontalOptions="CenterAndExpand" />
-                <ListView Grid.Row="2" x:Name="WorkersListView" SelectionMode="Single" ItemTapped="OnRemoveEmployeeFromProject" RowHeight="60" BackgroundColor="#202020">
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <Label TextColor="White" Text="Employees in this project" HorizontalOptions="CenterAndExpand" />
+                    <Label TextColor="White" Text="{Binding Workers.Count, StringFormat='{0} of 5'}" HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+                <ListView Grid.Row="2" x:Name="WorkersListView" SelectionMode="None" ItemTapped="OnRemoveEmployeeFromProject" RowHeight="60" BackgroundColor="#202020">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Margin="20">
-                                    <Label TextColor="White" Text="{Binding Name}" LineBreakMode="WordWrap" MaxLines="2" VerticalTextAlignment="Center" HorizontalOptions="Start" />
+                                    <Label TextColor="White" Text="{Binding Name}" LineBreakMode="WordWrap" MaxLines="2" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                     <Label TextColor="White" Text="{Binding Skill}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" />
                                 </StackLayout>
                             </ViewCell>
@@ -38,12 +41,12 @@
              VerticalOptions="Center"
              HorizontalOptions="Center" />
                 <Label TextColor="White" Grid.Row="4" Text="Available Employees" HorizontalOptions="CenterAndExpand" />
-                <ListView Grid.Row="5" x:Name="EmployeesListView" SelectionMode="Single" ItemTapped="OnAddEmployeeToProject" RowHeight="60" BackgroundColor="#404040">
+                <ListView Grid.Row="5" x:Name="EmployeesListView" SelectionMode="None" ItemTapped="OnAddEmployeeToProject" RowHeight="60" BackgroundColor="#404040">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal" Margin="20">
-                                    <Label TextColor="White" Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
+                                    <Label TextColor="White" Text="{Binding Name}" LineBreakMode="WordWrap" MaxLines="2" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand" />
                                     <Label TextColor="White" Text="{Binding Skill}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" />
                                 </StackLayout>
                             </ViewCell>

@@ -28,11 +28,13 @@ namespace Allocatr
         }
         public void OnAddEmployeeToProject(ListView sender, ItemTappedEventArgs args)
         {
-            var employeeSelected = (Employee)args.Item;
-            Workers.Add(employeeSelected);
-            Project.AddWorker(employeeSelected);
-            Employees.Remove(employeeSelected);
-            WorkersListView.ScrollTo(employeeSelected, ScrollToPosition.MakeVisible, true);
+            if (Workers.Count < 5) {
+                var employeeSelected = (Employee)args.Item;
+                Workers.Add(employeeSelected);
+                Project.AddWorker(employeeSelected);
+                Employees.Remove(employeeSelected);
+                WorkersListView.ScrollTo(employeeSelected, ScrollToPosition.MakeVisible, true);
+            }
         }
         public void OnRemoveEmployeeFromProject(ListView sender, ItemTappedEventArgs args)
         {
@@ -40,7 +42,6 @@ namespace Allocatr
             Workers.Remove(employeeSelected);
             Project.RemoveWorker(employeeSelected);
             Employees.Add(employeeSelected);
-            EmployeesListView.ScrollTo(employeeSelected, ScrollToPosition.MakeVisible, true);
         }
 
         protected override void OnDisappearing()

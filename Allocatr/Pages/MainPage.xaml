@@ -9,8 +9,8 @@
                             <ffimageloading:CachedImage Source="{Binding PhotoUrl}" LoadingPlaceholder="placeholder.png" WidthRequest="500" HeightRequest="200" HorizontalOptions="CenterAndExpand" />
                             <Label Text="{Binding Name}" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontSize="Large" FontFamily="Verdana"/>
                             <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                                <Label Text="Members:" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />
-                                <Label Text="{Binding Workers.Count}" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />
+<!--                                <Label Text="Members:" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />-->
+                                <Label Text="{Binding Workers.Count, StringFormat='Members: {0}'}" TextColor="White" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand" FontFamily="Verdana" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>
